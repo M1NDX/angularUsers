@@ -1,0 +1,72 @@
+<h1> {{modoNew? 'Registro': 'Edición'}} de usuario</h1>
+
+<button type="button" class="btn btn-primary" (click)="openModal(template)">Open modal</button>
+<br><br>
+<pre class="card card-block card-header">{{message}}</pre>
+<ng-template #template>
+  <div class="modal-body text-center">
+    <p>Do you want to confirm?</p>
+    <button type="button" class="btn btn-default" (click)="confirm()" >Yes</button>
+    <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
+  </div>
+</ng-template>
+
+
+<form #f="ngForm" (ngSubmit)="submit(f)"  >
+    <div class="form-group">
+      <label for="">Nombre</label>
+      <input type="text" class="form-control" ngModel [(ngModel)]="user.nombre" name="nombre" aria-describedby="helpId" placeholder="nombre" required>
+    </div>
+    <div class="form-group">
+      <label for="">Password</label>
+      <input type="password" class="form-control" ngModel [(ngModel)]="user.pass" name="password" aria-describedby="helpId" placeholder="" required>
+    </div>
+    <div class="form-group">
+      <label for="">Estado</label>
+      <select class="form-control" ngModel [(ngModel)]="user.estado" name="estado" required>
+        <option *ngFor="let e of estados; let i = index" [value]="e"  >{{e}}</option>
+      </select>
+    </div>
+    <div class="form-check"  *ngFor="let h of hobbies; let i= index">
+      <label class="form-check-label">
+        <input type="checkbox" class="form-check-input" ngModel [(ngModel)]="selectedH[i]" [value]="h" name="hobbie{{i}}" checked>
+       {{h}}
+      </label>
+    </div>
+    
+
+    <input name="" id="" class="btn btn-primary" type="submit" value="Guardar">
+
+</form>
+
+<div *ngIf="error" class="alert alert-warning alert-dismissible fade show" role="alert">
+  <button type="button" class="close" (click)="closeAlert()"  data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <strong>Error: {{errorVal}}</strong> 
+</div>
+
+<script>
+  $(".alert").alert();
+</script>
+
+<p>{{user | json}}</p>
+<p>{{selectedH | json}}</p>
+<p>{{f.value | json}}</p>
+<p>{{f.valid}}</p>
+
+<img src="{{src}}" alt="test" width="300px">
+<form #f2="ngForm" (ngSubmit)="uploadImage(f2)" >
+  <div class="form-group files">
+    <label for="">imagen</label>
+    <input type="file" ngModel (change)="obtenerImage($event)" class="form-control" name="image" aria-describedby="fileHelpId">
+  </div>
+  <div class="form-group">
+    <label for="">Descripción</label>
+    <input type="text"
+      class="form-control" ngModel name="desc"  aria-describedby="helpId" placeholder="">
+    <small id="helpId" class="form-text text-muted">Help text</small>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+

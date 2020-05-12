@@ -1,0 +1,28 @@
+[{
+  "nombre": "Juan",
+  "pass": "123",
+  "estado": "JALISCO",
+  "hobbies": ["correr"]
+}, {
+  "nombre": "Pepe",
+  "pass": "1234",
+  "estado": "AGUASCALIENTES",
+  "hobbies": ["nadar", "videojuegos"]
+}, {
+  "nombre": "test",
+  "pass": "123456",
+  "estado": "CIUDAD DE MÉXICO",
+  "hobbies": []
+}, {
+  "nombre": "luisfer.isc@gmail.com",
+  "info": {
+    "sub": "114217938796038071676",
+    "name": "Luis Gutiérrez",
+    "given_name": "Luis",
+    "family_name": "Gutiérrez",
+    "picture": "https://lh3.googleusercontent.com/a-/AOh14Ggx85ac7sarSiDB7QDdxeAcaZYfw8S0PX8uN_C5ag",
+    "email": "luisfer.isc@gmail.com",
+    "email_verified": true,
+    "locale": "es-419"
+  }
+}]

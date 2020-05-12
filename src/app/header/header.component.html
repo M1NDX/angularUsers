@@ -1,0 +1,7 @@
+<nav class="nav justify-content-center">
+  <a class="nav-link active" href="#" [routerLink]="['/home']" routerLinkActive="router-link-active" >Home</a>
+  <a class="nav-link active" href="#" [routerLink]="['/about']" >About</a>
+  <a  *ngIf="!logueado"class="nav-link active" href="#" [routerLink]="['/login']" >Login</a>
+  <a  *ngIf="logueado" class="nav-link active" href="#" [routerLink]="" (click)="logout()" >Logout</a>
+  <a class="nav-link active" href="#" [routerLink]="['/users']" >Users</a>
+</nav>
